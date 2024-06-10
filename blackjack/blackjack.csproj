@@ -55,6 +55,7 @@
     <Compile Include="Entities\Design\Image_Card.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Entities\GameHistory.cs" />
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Form\MainFrom.cs">
       <SubType>Form</SubType>

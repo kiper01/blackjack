@@ -11,10 +11,11 @@
         IsDealer = isDealer;
     }
 
-    public void AddCardToHand(Card card) // task 6
+    public void AddCardToHand(Card card, GameHistory history, Player player) // task 6
     {
         Hand.AddCardToStart(card);
         UpdateScore();
+        history.PlayerMove(card, player);
     }
 
     public void UpdateScore() // task 6

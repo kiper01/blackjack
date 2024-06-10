@@ -12,4 +12,8 @@
         Points = points;
         ImageName = imageName;
     }
+    public override string ToString()
+    {
+        return $"{Value} of {Suit} ({Points} points)";
+    }
 }

@@ -9,6 +9,7 @@ namespace blackjack
     {
         private Player player;
         private Player dealer;
+        private GameHistory history;
         private CardsDeck _deck;
         private bool _gameStatus;
 
@@ -21,15 +22,18 @@ namespace blackjack
 
         private void StartGame() // task 5
         {
+            history = new GameHistory();
+            history.StartGameMove();
+
             _deck.ShuffleDeck();
 
             player = new Player();
             dealer = new Player(isDealer: true);
 
-            player.AddCardToHand(_deck.GetCardFromStart());
-            dealer.AddCardToHand(_deck.GetCardFromStart());
-            player.AddCardToHand(_deck.GetCardFromStart());
-            dealer.AddCardToHand(_deck.GetCardFromStart());
+            player.AddCardToHand(_deck.GetCardFromStart(), history, player);
+            dealer.AddCardToHand(_deck.GetCardFromStart(), history, dealer);
+            player.AddCardToHand(_deck.GetCardFromStart(), history, player);
+            dealer.AddCardToHand(_deck.GetCardFromStart(), history, dealer);
 
             UpdateCardDisplay(player);
             UpdateLabelScore(player);
@@ -73,7 +77,7 @@ namespace blackjack
 
             while (dealer.Score < 17)
             {
-                dealer.AddCardToHand(_deck.GetCardFromStart());
+                dealer.AddCardToHand(_deck.GetCardFromStart(), history, dealer);
             }
 
             UpdateCardDisplay(dealer);
@@ -112,6 +116,7 @@ namespace blackjack
                 boxDescription = "Ничья - у вас и у дилера одинаковое количество очков.";
             }
 
+            history.FinishMove(boxName, boxDescription);
             MessageBox.Show(boxDescription, boxName);
 
             SetApplicationToDefault();
@@ -158,7 +163,7 @@ namespace blackjack
 
         private void button_NewGame2_Click(object sender, EventArgs e)
         {
-            player.AddCardToHand(_deck.GetCardFromStart());
+            player.AddCardToHand(_deck.GetCardFromStart(), history, player);
             UpdateCardDisplay(player);
             UpdateLabelScore(player);
             if (player.Score >= 21) DealerMove();
