@@ -1,8 +1,9 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System;
 
 public class Deck
 {
-    private class Node
+    protected class Node
     {
         public Card Data { get; set; }
         public Node Next { get; set; }
@@ -14,45 +15,15 @@ public class Deck
         }
     }
 
-    private Node head;
-    private Node tail;
-    private int count;
+    protected Node head;
+    protected Node tail;
+    protected int count;
 
     public Deck()
     {
         head = null;
         tail = null;
         count = 0;
-        InitializeDeck();
-        ShuffleDeck();
-    }
-
-    private void InitializeDeck()
-    {
-        string[] suits = { "Hearts", "Diamonds", "Clubs", "Spades" };
-        string[] values = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
-        int[] points = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11 };
-
-        foreach (var suit in suits)
-        {
-            for (int i = 0; i < values.Length; i++)
-            {
-                string imageName = $"{values[i]}_{suit}.jpg";
-                AddCardToStart(new Card(suit, values[i], points[i], imageName));
-            }
-        }
-    }
-
-    public void ShuffleDeck() // task 3
-    {
-        Random rand = new Random();
-
-        for (int i = 0; i < 10; i++)
-        {
-            int index = rand.Next(count);
-            Card card = GetCardByIndex(index);
-            AddCardToStart(card);
-        }
     }
 
     public void AddCardToStart(Card card) // task 2
@@ -116,7 +87,7 @@ public class Deck
         count++;
     }
 
-    public Card GetCardByIndex(int index)  // task 2 (удаление по указанному индексу (с возвращением элемента))
+    public Card GetCardByIndex(int index) // task 2 (удаление по указанному индексу (с возвращением элемента))
     {
         if (index < 0 || index >= count)
         {
@@ -151,5 +122,24 @@ public class Deck
         count--;
 
         return current.Data;
+    }
+
+    public IEnumerable<Card> GetAllCards()
+    {
+        Node current = head;
+        while (current != null)
+        {
+            yield return current.Data;
+            current = current.Next;
+        }
+    }
+
+    public int Count => count;
+
+    public void Clear()
+    {
+        head = null;
+        tail = null;
+        count = 0;
     }
 }

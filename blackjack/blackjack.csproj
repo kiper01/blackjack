@@ -47,10 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Card.cs" />
+    <Compile Include="Entities\CardsDeck.cs" />
     <Compile Include="Entities\Deck.cs" />
     <Compile Include="Entities\Design\Button_NewGame.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Entities\Player.cs" />
     <Compile Include="Form\MainFrom.cs">
       <SubType>Form</SubType>
     </Compile>
