@@ -53,7 +53,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(832, 214);
             this.flowLayoutPanel1.TabIndex = 0;
             this.flowLayoutPanel1.Visible = false;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // flowLayoutPanel2
             // 
@@ -80,7 +79,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Рука игрока";
             this.label1.Visible = false;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -106,7 +104,6 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Счет:";
             this.label3.Visible = false;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 

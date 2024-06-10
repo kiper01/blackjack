@@ -1,6 +1,4 @@
-﻿using System;
-
-public class Player
+﻿public class Player // task 4
 {
     public Deck Hand { get; private set; }
     public int Score { get; private set; }
@@ -13,13 +11,13 @@ public class Player
         IsDealer = isDealer;
     }
 
-    public void AddCardToHand(Card card)
+    public void AddCardToHand(Card card) // task 6
     {
         Hand.AddCardToStart(card);
         UpdateScore();
     }
 
-    public void UpdateScore()
+    public void UpdateScore() // task 6
     {
         int aceCount = 0;
         int total = 0;
@@ -45,7 +43,7 @@ public class Player
         Score = total;
     }
 
-    public void ClearHand(CardsDeck deck)
+    public void ClearHand(CardsDeck deck) // task 7
     {
         while (Hand.Count != 0)
         {

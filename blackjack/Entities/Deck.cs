@@ -26,7 +26,7 @@ public class Deck
         count = 0;
     }
 
-    public void AddCardToStart(Card card)
+    public void AddCardToStart(Card card) // task 2
     {
         Node newNode = new Node(card);
 
@@ -43,7 +43,7 @@ public class Deck
         count++;
     }
 
-    public Card GetCardFromStart()
+    public Card GetCardFromStart() // task 2
     {
         if (head == null) throw new InvalidOperationException("Колода пуста.");
 
@@ -54,7 +54,7 @@ public class Deck
         return card;
     }
 
-    public void AddCardByIndex(Card card, int index)
+    public void AddCardByIndex(Card card, int index) // task 2
     {
         if (index < 0 || index > count)
         {
@@ -87,7 +87,7 @@ public class Deck
         count++;
     }
 
-    public Card GetCardByIndex(int index)
+    public Card GetCardByIndex(int index) // task 2
     {
         if (index < 0 || index >= count)
         {

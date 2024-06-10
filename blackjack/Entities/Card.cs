@@ -1,6 +1,4 @@
-﻿using System;
-
-public class Card
+﻿public class Card
 {
     public string Suit { get; private set; }
     public string Value { get; private set; }
@@ -13,10 +11,5 @@ public class Card
         Value = value;
         Points = points;
         ImageName = imageName;
-    }
-
-    public override string ToString()
-    {
-        return $"{Value} of {Suit} ({Points} points)";
     }
 }

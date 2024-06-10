@@ -8,7 +8,7 @@ public class CardsDeck : Deck
         InitializeDeck();
     }
 
-    private void InitializeDeck()
+    private void InitializeDeck() // task 3
     {
         string[] suits = { "Hearts", "Diamonds", "Clubs", "Spades" };
         string[] values = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
@@ -28,7 +28,7 @@ public class CardsDeck : Deck
         }
     }
 
-    public void ShuffleDeck() // ефыл 3
+    public void ShuffleDeck() // task 3
     {
         Random rand = new Random();
         List<Card> cardsList = new List<Card>();

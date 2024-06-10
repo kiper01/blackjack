@@ -19,7 +19,7 @@ namespace blackjack
             _gameStatus = true;
         }
 
-        private void StartGame()
+        private void StartGame() // task 5
         {
             _deck.ShuffleDeck();
 
@@ -36,7 +36,7 @@ namespace blackjack
             UpdateCardDisplay(dealer);
         }
 
-        private void UpdateCardDisplay(Player player)
+        private void UpdateCardDisplay(Player player) // task 5
         {
             FlowLayoutPanel panel = player.IsDealer ? flowLayoutPanel1 : flowLayoutPanel2;
             panel.Controls.Clear();
@@ -61,7 +61,7 @@ namespace blackjack
             }
         }
 
-        private void UpdateLabelScore(Player player)
+        private void UpdateLabelScore(Player player) // task 6
         {
             Label label = player.IsDealer ? label6 : label4;
             label.Text = player.Score.ToString();
@@ -80,7 +80,8 @@ namespace blackjack
             UpdateLabelScore(dealer);
             FinishGame();
         }
-        private void FinishGame()
+
+        private void FinishGame() // task 7
         {
             string boxName;
             string boxDescription;
@@ -116,7 +117,7 @@ namespace blackjack
             SetApplicationToDefault();
         }
 
-        private void SetApplicationToDefault()
+        private void SetApplicationToDefault() // task 7
         {
             player.ClearHand(_deck);
             dealer.ClearHand(_deck);
@@ -137,27 +138,6 @@ namespace blackjack
             label4.Visible = false;
             label5.Visible = false;
             label6.Visible = false;
-        }
-
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button_NewGame3_Click(object sender, EventArgs e)
