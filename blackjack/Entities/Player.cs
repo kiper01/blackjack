@@ -45,8 +45,13 @@ public class Player
         Score = total;
     }
 
-    public void ClearHand()
+    public void ClearHand(CardsDeck deck)
     {
+        while (Hand.Count != 0)
+        {
+            deck.AddCardToStart(Hand.GetCardFromStart());
+        }
+
         Hand.Clear();
         Score = 0;
     }

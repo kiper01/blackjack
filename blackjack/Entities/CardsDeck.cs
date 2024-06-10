@@ -6,7 +6,6 @@ public class CardsDeck : Deck
     public CardsDeck()
     {
         InitializeDeck();
-        ShuffleDeck();
     }
 
     private void InitializeDeck()

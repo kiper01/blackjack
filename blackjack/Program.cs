@@ -8,15 +8,14 @@ namespace blackjack
 {
     internal static class Program
     {
-        /// <summary>
-        /// Главная точка входа для приложения.
-        /// </summary>
         [STAThread]
         static void Main()
         {
+            CardsDeck deck = new CardsDeck(); // task 8
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new MainForm(deck));
         }
     }
 }
