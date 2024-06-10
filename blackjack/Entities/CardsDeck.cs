@@ -19,7 +19,11 @@ public class CardsDeck : Deck
         {
             for (int i = 0; i < values.Length; i++)
             {
-                string imageName = $"{values[i]}_{suit}.jpg";
+                string imageName = $"{values[i]}_{suit}";
+                if (int.TryParse(values[i], out int result))
+                {
+                    imageName = "_" + imageName;
+                }
                 AddCardToStart(new Card(suit, values[i], points[i], imageName));
             }
         }

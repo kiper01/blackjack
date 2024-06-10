@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System;
+﻿using System;
+using System.Collections.Generic;
 
 public class Deck
 {
-    protected class Node
+    public class Node
     {
         public Card Data { get; set; }
         public Node Next { get; set; }
@@ -26,7 +26,7 @@ public class Deck
         count = 0;
     }
 
-    public void AddCardToStart(Card card) // task 2
+    public void AddCardToStart(Card card)
     {
         Node newNode = new Node(card);
 
@@ -43,7 +43,7 @@ public class Deck
         count++;
     }
 
-    public Card GetCardFromStart() // task 2 (удаление с начала (с возвращением элемента))
+    public Card GetCardFromStart()
     {
         if (head == null) throw new InvalidOperationException("Колода пуста.");
 
@@ -54,7 +54,7 @@ public class Deck
         return card;
     }
 
-    public void AddCardByIndex(Card card, int index) // task 2
+    public void AddCardByIndex(Card card, int index)
     {
         if (index < 0 || index > count)
         {
@@ -87,7 +87,7 @@ public class Deck
         count++;
     }
 
-    public Card GetCardByIndex(int index) // task 2 (удаление по указанному индексу (с возвращением элемента))
+    public Card GetCardByIndex(int index)
     {
         if (index < 0 || index >= count)
         {
@@ -141,5 +141,10 @@ public class Deck
         head = null;
         tail = null;
         count = 0;
+    }
+
+    public Node GetHead()
+    {
+        return head;
     }
 }

@@ -2,14 +2,12 @@
 
 public class Player
 {
-    public string Name { get; set; }
     public Deck Hand { get; private set; }
     public int Score { get; private set; }
     public bool IsDealer { get; private set; }
 
-    public Player(string name, bool isDealer = false)
+    public Player(bool isDealer = false)
     {
-        Name = name;
         Hand = new Deck();
         Score = 0;
         IsDealer = isDealer;
@@ -26,14 +24,16 @@ public class Player
         int aceCount = 0;
         int total = 0;
 
-        foreach (var card in Hand.GetAllCards())
+        var current = Hand.GetHead();
+        while (current != null)
         {
-            int cardPoints = card.Points;
+            int cardPoints = current.Data.Points;
             if (cardPoints == 11)
             {
                 aceCount++;
             }
             total += cardPoints;
+            current = current.Next;
         }
 
         while (total > 21 && aceCount > 0)

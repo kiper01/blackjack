@@ -28,11 +28,10 @@ namespace blackjack.Entities.Design
 
             // Style
             this.Size = new System.Drawing.Size(160, 80);
-            this.BackColor = Color.IndianRed;
+            this.BackColor = Color.CornflowerBlue;
             this.ForeColor = Color.WhiteSmoke;
             this.Font = new Font("Arial", 26f, FontStyle.Bold);
-            this.Anchor = AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Top;
-            this.Text = "Новая игра";
+            this.Anchor = AnchorStyles.Right | AnchorStyles.Bottom;
 
             SF.Alignment = StringAlignment.Center;
             SF.LineAlignment = StringAlignment.Center;
